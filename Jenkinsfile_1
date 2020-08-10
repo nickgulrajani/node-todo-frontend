@@ -8,26 +8,16 @@ pipeline {
         
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/nickgulrajani/node-todo-frontend.git'
+        git 'https://github.com/nickgulrajani/node-todo-frontend'
       }
     }
         
     stage('Install dependencies') {
       steps {
         sh 'npm install'
-        sh 'npm audit fix'
-      } 
-     }
-    stage('Sonarqube') {
-    environment {
-        scannerHome = tool 'sonar'
+      }
     }
-    steps {
-        withSonarQubeEnv('sonar') {
-            sh "${scannerHome}/bin/sonar-scanner"
-        }
-    }
-}     
+     
     stage('Test') {
       steps {
          sh 'npm test'
@@ -35,3 +25,4 @@ pipeline {
     }      
   }
 }
+
