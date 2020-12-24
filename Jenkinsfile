@@ -4,6 +4,7 @@ pipeline {
         registry = "nicholasgull/nodefrontend"
         registryCredential = 'dockerhub'
         dockerImage = ''	
+        }
 	agent any 
         stages {
 	stage('Git') {
@@ -32,4 +33,5 @@ pipeline {
         sh "docker rmi $registry:latest"
     }
     
+}
 }
