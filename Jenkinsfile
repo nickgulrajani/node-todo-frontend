@@ -6,7 +6,6 @@ pipeline {
         dockerImage = ''	
         }
 	agent any 
-        stages {
 	stage('Git') {
 		git 'https://github.com/nickgulrajani/node-todo-frontend'
 	}
@@ -33,5 +32,4 @@ pipeline {
         sh "docker rmi $registry:latest"
     }
     
-}
 }
