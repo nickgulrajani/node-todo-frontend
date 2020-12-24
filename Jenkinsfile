@@ -1,4 +1,4 @@
-pipeline {
+node {
     
         environment {
         registry = "nicholasgull/nodefrontend"
