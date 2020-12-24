@@ -1,12 +1,11 @@
-node {
+pipeline {
     
-	
-
-    env.AWS_ECR_LOGIN=true
-    def newApp
-    def registry = 'hub.docker.com'
-    def registryCredential = 'dockerhub'
-	
+        environment {
+        registry = "nicholasgull/nodefrontend"
+        registryCredential = 'dockerhub'
+        dockerImage = ''	
+	agent any 
+        stages {
 	stage('Git') {
 		git 'https://github.com/nickgulrajani/node-todo-frontend'
 	}
